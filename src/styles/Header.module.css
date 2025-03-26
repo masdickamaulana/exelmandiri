@@ -1,0 +1,9 @@
+
+.header-menu a {
+    transition: color 0.3s ease;
+}
+
+.header-menu a:hover {
+    color: #1d4ed8;
+    /* Biru */
+}
