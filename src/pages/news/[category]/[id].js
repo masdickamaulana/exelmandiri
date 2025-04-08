@@ -26,7 +26,7 @@ export default function NewsDetailPage() {
           id: "Prestasi membanggakan diraih PT Exel Mandiri Inovasi sebagai Teladan 2 Nasional Olimpiade Pengupahan Berbasis Produktivitas Kemenaker RI.",
           en: "An outstanding achievement by PT Exel Mandiri Inovasi as the National 2nd Role Model at Kemenaker RI's Productivity-Based Wage Olympiad."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/information/news1.jpg",
         content: [
           {
@@ -91,7 +91,7 @@ export default function NewsDetailPage() {
           id: "PT Exel Mandiri Inovasi memberangkatkan 14 karyawan dan tokoh masyarakat untuk menunaikan ibadah umroh sebagai bentuk apresiasi dan motivasi.",
           en: "PT Exel Mandiri Inovasi sends 14 employees and community figures to perform Umrah as a form of appreciation and motivation."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/information/news2.jpg",
         content: [
           {
@@ -135,7 +135,7 @@ export default function NewsDetailPage() {
           id: "Pengajian akbar digelar PT Exel Mandiri Inovasi dalam rangka menyambut tahun baru 2024 sebagai sarana mempererat silaturahmi dan meningkatkan keimanan.",
           en: "PT Exel Mandiri Inovasi held a grand Islamic gathering to welcome 2024 as a means to strengthen bonds and enhance faith."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/information/news3.jpg",
         content: [
           {
@@ -201,7 +201,7 @@ export default function NewsDetailPage() {
           id: "PT Exel Mandiri Inovasi mendukung kegiatan Lawang Bersholawat untuk sambut tahun baru 2025, wujud kepedulian sosial dan spiritual kepada masyarakat.",
           en: "PT Exel Mandiri Inovasi supports Lawang Bersholawat event to welcome 2025, as a form of social and spiritual care for the community."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/information/news4.jpg",
         content: [
           {
@@ -268,7 +268,7 @@ export default function NewsDetailPage() {
           id: "Exel Mandiri Inovasi aktif dalam program kemanusiaan untuk membantu masyarakat terdampak banjir.",
           en: "Exel Mandiri Inovasi is active in humanitarian programs to assist communities affected by floods."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/csr/csr123.jpeg",
         content: [
           {
@@ -312,7 +312,7 @@ export default function NewsDetailPage() {
           id: "Exel Mandiri Inovasi turut membantu korban gempa bumi di Lombok melalui program kemanusiaan.",
           en: "Exel Mandiri Inovasi assists earthquake victims in Lombok through humanitarian programs."
         },
-        date: "2025-03-12",
+        date: "",
         image: "/images/csr/csr2.jpg",
         content: [
           {
@@ -356,7 +356,7 @@ export default function NewsDetailPage() {
           id: "Exel Mandiri Inovasi mendukung dunia pendidikan melalui bantuan kepada para guru di SD Srigading.",
           en: "Exel Mandiri Inovasi supports education through assistance to teachers at SD Srigading."
         },
-        date: "2025-03-12", 
+        date: "", 
         image: "/images/csr/csr3.jpeg",
         content: [
           {
@@ -433,9 +433,10 @@ return (
 
         {/* Tanggal Berita */}
         <p className="text-white text-sm mt-1">
-          {new Date(newsItem.date).toLocaleDateString(language === "id" ? "id-ID" : "en-US", {
-            day: "numeric", month: "long", year: "numeric"
-          })}
+          {newsItem.date && !isNaN(new Date(newsItem.date)) ? 
+            new Date(newsItem.date).toLocaleDateString(language === "id" ? "id-ID" : "en-US", {
+              day: "numeric", month: "long", year: "numeric"
+            }) : "-"}
         </p>
       </div>
     </section>

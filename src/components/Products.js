@@ -78,7 +78,7 @@ export default function Products() {
   }, [instanceRef]);
 
   return (
-    <section id="products" className="bg-white pt-32 pb-20 overflow-hidden px-4 sm:px-8">
+    <section id="products" className="bg-gray-100 pt-32 pb-20 overflow-hidden px-4 sm:px-8">
       <div className="container mx-auto relative">
         {/* ✅ Judul Section pakai bahasa dinamis */}
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">

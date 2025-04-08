@@ -16,7 +16,7 @@ export default function CSR() {
       description: language === "id" 
         ? "Exel Mandiri Inovasi aktif dalam program kemanusiaan untuk membantu masyarakat yang terdampak banjir."
         : "Exel Mandiri Inovasi is active in humanitarian programs to assist communities affected by floods.",
-      date: "2025-02-15",
+      date: "",
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ export default function CSR() {
       description: language === "id" 
         ? "Exel Mandiri Inovasi turut serta membantu korban gempa bumi di Lombok melalui program kemanusiaan."
         : "Exel Mandiri Inovasi participates in helping earthquake victims in Lombok through humanitarian programs.",
-      date: "2025-01-28",
+      date: "",
     },
     {
       id: 3,
@@ -38,16 +38,20 @@ export default function CSR() {
       description: language === "id" 
         ? "Exel Mandiri Inovasi mendukung dunia pendidikan melalui bantuan kepada para guru di SD Srigading."
         : "Exel Mandiri Inovasi supports education by assisting teachers at Srigading Elementary School.",
-      date: "2024-12-10",
+      date: "",
     },
   ];
 
   // Fungsi untuk format tanggal
-  const formatDate = (dateString) => {
-    if (!dateString) return "";
-    
-    const options = { day: "2-digit", month: "long", year: "numeric" };
-    return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-US", options).format(new Date(dateString));
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "-"; // Jika kosong/null
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return "-"; // Jika tidak valid
+    return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
   };
 
   // Hook intersection observer untuk mendeteksi scroll

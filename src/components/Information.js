@@ -8,9 +8,10 @@ export default function Information() {
 
   // Fungsi format tanggal
   const formatDate = (dateStr) => {
-    if (!dateStr) return language === "id" ? "Tanggal tidak tersedia" : "Date unavailable";
+    if (!dateStr) return "-"; // Jika kosong/null
     const date = new Date(dateStr);
-    return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-US", { // ✅ Ubah ke en-US agar ada koma
+    if (isNaN(date.getTime())) return "-"; // Jika tidak valid
+    return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-GB", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -28,7 +29,7 @@ export default function Information() {
       description: language === "id" 
         ? "Prestasi membanggakan diraih PT Exel Mandiri Inovasi sebagai Teladan 2 Nasional Olimpiade Pengupahan Berbasis Produktivitas Kemenaker RI."
         : "A proud achievement by PT Exel Mandiri Inovasi as the 2nd National Role Model in the Kemenaker RI Productivity-Based Wage Olympiad.",
-      date: "2025-03-26",
+      date: "",
     },
     {
       id: 2,
@@ -39,7 +40,7 @@ export default function Information() {
       description: language === "id" 
         ? "PT Exel Mandiri Inovasi memberangkatkan 14 karyawan dan tokoh masyarakat untuk menunaikan ibadah umroh sebagai bentuk apresiasi dan motivasi."
         : "PT Exel Mandiri Inovasi sends 14 employees and community leaders for Umrah as a form of appreciation and motivation.",
-      date: "2025-03-26",
+      date: "",
     },
     {
       id: 3,
@@ -50,7 +51,7 @@ export default function Information() {
       description: language === "id" 
         ? "Pengajian akbar digelar PT Exel Mandiri Inovasi dalam rangka menyambut tahun baru 2024 sebagai sarana mempererat silaturahmi dan meningkatkan keimanan."
         : "A grand recitation was held by PT Exel Mandiri Inovasi to welcome 2024, strengthening bonds and faith.",
-      date: "2024-12-31",
+      date: "",
     },
   ];
 
@@ -61,7 +62,7 @@ export default function Information() {
     <section
       id="information"
       ref={ref}
-      className="bg-white pt-24 pb-20 overflow-hidden"
+      className="bg-gray-100 pt-32 pb-20 overflow-hidden px-4 sm:px-8"
     >
       <div className="container mx-auto px-6">
         {/* Judul Section */}

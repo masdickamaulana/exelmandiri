@@ -40,7 +40,7 @@ export default function NewsPage() {
         },
         image: "/images/information/news1.jpg",
         category: "company",
-        date: "2025-03-12"
+        date: ""
       },
       {
         id: 2,
@@ -54,7 +54,7 @@ export default function NewsPage() {
         },
         image: "/images/information/news2.jpg",
         category: "company",
-        date: "2025-03-12"
+        date: ""
       },
       {
         id: 3,
@@ -68,7 +68,7 @@ export default function NewsPage() {
         },
         image: "/images/information/news3.jpg",
         category: "company",
-        date: "2025-03-12"
+        date: ""
       },
       {
         id: 4,
@@ -82,7 +82,7 @@ export default function NewsPage() {
         },
         image: "/images/information/news4.jpg",
         category: "company",
-        date: "2025-03-12"
+        date: ""
       },
     ],
     csr: [
@@ -98,7 +98,7 @@ export default function NewsPage() {
         },
         image: "/images/csr/csr123.jpeg",
         category: "csr",
-        date: "2025-03-12"
+        date: ""
       },
       {
         id: 2,
@@ -112,7 +112,7 @@ export default function NewsPage() {
         },
         image: "/images/csr/csr2.jpg",
         category: "csr",
-        date: "2025-03-12"
+        date: ""
       },
       {
         id: 3,
@@ -126,7 +126,7 @@ export default function NewsPage() {
         },
         image: "/images/csr/csr3.jpeg",
         category: "csr",
-        date: "2025-03-12"
+        date: ""
       },
     ],
   };
@@ -136,13 +136,16 @@ export default function NewsPage() {
   const filteredData = activeTab === "all" ? allNews : data[activeTab] || [];
 
   const formatDate = (dateStr) => {
-  const date = new Date(dateStr); // Konversi string ke Date object
-  return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(date);
-};
+    if (!dateStr) return "-"; // Jika kosong/null
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return "-"; // Jika tidak valid
+    return new Intl.DateTimeFormat(language === "id" ? "id-ID" : "en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  };
+
 
 
 return (

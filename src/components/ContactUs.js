@@ -12,7 +12,7 @@ export default function ContactUs() {
     <section
       id="contact"
       ref={ref}
-      className="bg-white pt-24 pb-20 overflow-hidden"
+      className="bg-gray-100 pt-32 pb-20 overflow-hidden px-4 sm:px-8"
     >
       <div className="container mx-auto px-6">
         {/* Judul Section */}
