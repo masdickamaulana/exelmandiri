@@ -1,5 +1,10 @@
+import { createContext, useContext, useState, useEffect } from 'react';
+
+// ✅ HARUS dideklarasi dulu
+const LanguageContext = createContext();
+
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('id'); // langsung default ke 'id'
+  const [language, setLanguage] = useState('id');
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -21,3 +26,6 @@ export const LanguageProvider = ({ children }) => {
     </LanguageContext.Provider>
   );
 };
+
+// ✅ Export context-nya juga kalau kamu pakai di file lain
+export const useLanguage = () => useContext(LanguageContext);
