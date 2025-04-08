@@ -7,9 +7,11 @@ import { useLanguage } from '../context/LanguageContext'; // Import Context
 const dictionary = {
   id: {
     title: 'Profil Perusahaan',
-    about: 'PT. Exel Mandiri Inovasi adalah perusahaan yang bergerak di bidang jasa teknik mesin dan kontraktor, fokus pada instalasi, manufaktur, dan fabrikasi. Didirikan pada 2 Desember 2009, kami telah berkembang menjadi salah satu perusahaan yang paling terpercaya dan kompeten di Indonesia. Dengan pengalaman bertahun-tahun, PT Exel Mandiri Inovasi tetap berkomitmen untuk memberikan layanan terbaik kepada pelanggan melalui teknologi modern, tenaga kerja profesional, dan standar kualitas internasional.',
+    about:
+      'PT. Exel Mandiri Inovasi adalah perusahaan yang bergerak di bidang jasa teknik mesin dan kontraktor, fokus pada instalasi, manufaktur, dan fabrikasi. Didirikan pada 2 Desember 2009, kami telah berkembang menjadi salah satu perusahaan yang paling terpercaya dan kompeten di Indonesia. Dengan pengalaman bertahun-tahun, PT Exel Mandiri Inovasi tetap berkomitmen untuk memberikan layanan terbaik kepada pelanggan melalui teknologi modern, tenaga kerja profesional, dan standar kualitas internasional.',
     visionTitle: 'Visi',
-    vision: 'Menjadi perusahaan terbaik di Indonesia dalam bidang Processing, Pengadaan, Fabrikasi, Instalasi, Perawatan material dan Equipment untuk Perusahaan Food Industri dan Industri lainnya.',
+    vision:
+      'Menjadi perusahaan terbaik di Indonesia dalam bidang Processing, Pengadaan, Fabrikasi, Instalasi, Perawatan material dan Equipment untuk Perusahaan Food Industri dan Industri lainnya.',
     missionTitle: 'Misi',
     missionList: [
       'Menerapkan sistem manajemen mutu dan K3.',
@@ -21,9 +23,11 @@ const dictionary = {
   },
   en: {
     title: 'Company Profile',
-    about: 'PT. Exel Mandiri Inovasi is a company engaged in mechanical engineering services and contractors, focusing on installation, manufacturing, and fabrication. Established on December 2, 2009, we have grown into one of the most trusted and competent companies in Indonesia. With years of experience, PT Exel Mandiri Inovasi remains committed to providing the best services to customers through modern technology, professional workforce, and international quality standards.',
+    about:
+      'PT. Exel Mandiri Inovasi is a company engaged in mechanical engineering services and contractors, focusing on installation, manufacturing, and fabrication. Established on December 2, 2009, we have grown into one of the most trusted and competent companies in Indonesia. With years of experience, PT Exel Mandiri Inovasi remains committed to providing the best services to customers through modern technology, professional workforce, and international quality standards.',
     visionTitle: 'Vision',
-    vision: 'To become the best company in Indonesia in the field of Processing, Procurement, Fabrication, Installation, Maintenance of materials and Equipment for the Food Industry and other Industries.',
+    vision:
+      'To become the best company in Indonesia in the field of Processing, Procurement, Fabrication, Installation, Maintenance of materials and Equipment for the Food Industry and other Industries.',
     missionTitle: 'Mission',
     missionList: [
       'Implement quality management and K3 systems.',
@@ -32,7 +36,7 @@ const dictionary = {
       'Comply with and implement applicable laws and regulations.',
       'Continuously innovate.',
     ],
-  }
+  },
 };
 
 export default function Profile() {
@@ -57,7 +61,7 @@ export default function Profile() {
         </motion.h2>
 
         {/* Konten Profil */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Gambar-gambar Perusahaan */}
           <motion.div
             className="flex flex-col items-center w-full space-y-6"
@@ -97,7 +101,7 @@ export default function Profile() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-6 max-w-3xl mx-auto lg:mx-0 lg:pl-6"
           >
             {/* Tentang Perusahaan */}
             <p className="text-lg leading-relaxed text-justify text-gray-700">
