@@ -1,15 +1,14 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
-// ✅ HARUS dideklarasi dulu
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('id');
+  const [language, setLanguage] = useState(null); // ⬅️ null dulu, bukan 'id'
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const lang = localStorage.getItem('lang');
-      if (lang) setLanguage(lang);
+      const lang = localStorage.getItem('lang') || 'id';
+      setLanguage(lang);
     }
   }, []);
 
@@ -20,6 +19,9 @@ export const LanguageProvider = ({ children }) => {
     }
   };
 
+  // ⛔ Jangan render children sebelum language siap
+  if (!language) return null;
+
   return (
     <LanguageContext.Provider value={{ language, changeLanguage }}>
       {children}
@@ -27,5 +29,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-// ✅ Export context-nya juga kalau kamu pakai di file lain
 export const useLanguage = () => useContext(LanguageContext);
