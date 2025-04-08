@@ -44,88 +44,86 @@ export default function Profile() {
   const t = dictionary[language]; // Kamus sesuai bahasa
 
   return (
-    <section
-      id="profile"
-      className="min-h-screen bg-white flex items-center justify-center pt-24 pb-20 overflow-hidden"
-    >
-      <div className="container mx-auto px-4">
-        {/* Judul Profil */}
-        <motion.h2
-          className="text-4xl font-semibold text-center mb-12 text-gray-800"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {t.title}
-        </motion.h2>
-
-        {/* Konten Profil */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Gambar-gambar Perusahaan */}
-          <motion.div
-            className="flex flex-col items-center w-full space-y-6"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+      <section
+        id="profile"
+        className="min-h-screen bg-white flex items-center justify-center pt-24 pb-20 overflow-hidden"
+      >
+        <div className="container mx-auto px-6 md:px-8 lg:px-12">
+          {/* Judul */}
+          <motion.h2
+            className="text-4xl font-semibold text-center mb-12 text-gray-800"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* Gambar Pertama */}
-            <div className="relative overflow-hidden rounded-lg shadow-lg max-w-md w-full">
-              <img
-                src="/images/exel.jpg"
-                alt="Tentang Kami"
-                className="object-cover w-full h-auto hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            {t.title}
+          </motion.h2>
 
-            {/* Gambar Kedua */}
+          {/* Konten */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Kolom Gambar */}
             <motion.div
-              className="relative overflow-hidden rounded-lg shadow-lg max-w-md w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              className="flex flex-col items-center w-full space-y-6"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <img
-                src="/images/exel3.jpg"
-                alt="Aktivitas Perusahaan"
-                className="object-cover w-full h-auto hover:scale-105 transition-transform duration-500"
-              />
+              {/* Gambar 1 */}
+              <div className="relative overflow-hidden rounded-lg shadow-lg max-w-md w-full">
+                <img
+                  src="/images/exel.jpg"
+                  alt="Tentang Kami"
+                  className="object-cover w-full h-auto hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Gambar 2 */}
+              <motion.div
+                className="relative overflow-hidden rounded-lg shadow-lg max-w-md w-full"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                <img
+                  src="/images/exel3.jpg"
+                  alt="Aktivitas Perusahaan"
+                  className="object-cover w-full h-auto hover:scale-105 transition-transform duration-500"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
 
-          {/* Deskripsi dan Visi Misi */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-6 max-w-3xl mx-auto lg:mx-0 lg:pl-6"
-          >
-            {/* Tentang Perusahaan */}
-            <p className="text-lg leading-relaxed text-justify text-gray-700">
-              {t.about}
-            </p>
+            {/* Kolom Teks */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="space-y-6 max-w-3xl lg:pr-10"
+            >
+              <p className="text-lg leading-relaxed text-justify text-gray-700">
+                {t.about}
+              </p>
 
-            {/* Visi */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-800">{t.visionTitle}</h3>
-              <p className="italic text-gray-700">{t.vision}</p>
-            </div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">{t.visionTitle}</h3>
+                <p className="italic text-gray-700">{t.vision}</p>
+              </div>
 
-            {/* Misi */}
-            <div>
-              <h3 className="text-2xl font-bold mb-2 text-gray-800">{t.missionTitle}</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                {t.missionList.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+              <div>
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">{t.missionTitle}</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                  {t.missionList.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
   );
 }

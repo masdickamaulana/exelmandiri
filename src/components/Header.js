@@ -157,33 +157,57 @@ export default function Header() {
 
       {/* Menu Mobile */}
       {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md">
-          <ul className="flex flex-col space-y-4 p-4 text-sm font-medium">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md z-50">
+          <ul className="flex flex-col divide-y divide-gray-200 p-4 text-sm font-medium max-h-[80vh] overflow-y-auto">
             {menuItems.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="py-2">
                 {item.id === 'home' ? (
-                  <button onClick={handleHomeClick} className="w-full text-left">{item.label}</button>
+                  <button onClick={handleHomeClick} className="w-full text-left text-gray-800 hover:text-blue-500 transition-colors">
+                    {item.label}
+                  </button>
                 ) : isHome ? (
-                  <button onClick={() => scrollToSection(item.id)} className="w-full text-left">{item.label}</button>
+                  <button onClick={() => scrollToSection(item.id)} className="w-full text-left text-gray-800 hover:text-blue-500 transition-colors">
+                    {item.label}
+                  </button>
                 ) : (
-                  <Link href={`/#${item.id}`} onClick={() => setMenuOpen(false)} className="block">{item.label}</Link>
+                  <Link href={`/#${item.id}`} onClick={() => setMenuOpen(false)} className="block text-gray-800 hover:text-blue-500 transition-colors">
+                    {item.label}
+                  </Link>
                 )}
               </li>
             ))}
-            <li>
-              <Link href="/news?tab=all" onClick={() => setMenuOpen(false)} className="block">{t('news')}</Link>
+
+            {/* Menu Berita */}
+            <li className="py-2">
+              <Link href="/news?tab=all" onClick={() => setMenuOpen(false)} className="block text-gray-800 hover:text-blue-500 transition-colors">
+                {t('news')}
+              </Link>
             </li>
-            {/* Language switcher in mobile */}
-            <li className="flex justify-between items-center">
-              <span>Bahasa</span>
-              <div className="flex space-x-2">
-                <button onClick={() => changeLanguage('id')}>🇮🇩</button>
-                <button onClick={() => changeLanguage('en')}>🇺🇸</button>
+
+            {/* Language selector - lebih rapi */}
+            <li className="pt-4">
+              <div className="text-gray-600 font-semibold mb-2">Pilih Bahasa</div>
+              <div className="flex flex-col space-y-2">
+                <button
+                  onClick={() => { changeLanguage('id'); setMenuOpen(false); }}
+                  className="flex items-center space-x-2 text-left px-4 py-2 rounded hover:bg-gray-100"
+                >
+                  <span>🇮🇩</span>
+                  <span>Indonesia</span>
+                </button>
+                <button
+                  onClick={() => { changeLanguage('en'); setMenuOpen(false); }}
+                  className="flex items-center space-x-2 text-left px-4 py-2 rounded hover:bg-gray-100"
+                >
+                  <span>🇺🇸</span>
+                  <span>English</span>
+                </button>
               </div>
             </li>
           </ul>
         </div>
       )}
+
     </header>
   );
 }
