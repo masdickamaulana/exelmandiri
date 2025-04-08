@@ -1,22 +1,19 @@
-// Provider
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState(null);
+  const [language, setLanguage] = useState('id'); // langsung default ke 'id'
 
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    const lang = localStorage.getItem('lang') || 'id';
-    setLanguage(lang);
-  }
-}, []);
-
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lang = localStorage.getItem('lang');
+      if (lang) setLanguage(lang);
+    }
+  }, []);
 
   const changeLanguage = (lang) => {
     setLanguage(lang);
-    localStorage.setItem('lang', lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem('lang', lang);
+    }
   };
-
-  // Jangan render anak-anaknya sebelum language siap
-  if (language === null) return null;
 
   return (
     <LanguageContext.Provider value={{ language, changeLanguage }}>
